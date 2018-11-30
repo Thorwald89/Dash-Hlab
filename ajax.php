@@ -19,7 +19,7 @@
  *
  *
  */
-include('../setup/setup.php');
+include('setup/setup.php');
 
 
 
@@ -89,5 +89,9 @@ Errore, Contatta il gestore del sistema.              </div>';
 
 
 
-	?>
-				
+
+
+
+?>
+
+

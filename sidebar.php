@@ -35,7 +35,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="home.php"><i class="fa fa-circle-o"></i> Home</a></li>
+            <li class="active"><a href="<?=$navigazione_http?>home.php"><i class="fa fa-circle-o"></i> Home</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -47,8 +47,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=$navigazione_http?>accettazione.php?pos=probando"><i class="fa fa-circle-o"></i>Inserisci Probando</a></li>
-            <li><a href="<?=$navigazione_http?>accettazione.php?pos=familiare" ><i class="fa fa-circle-o"></i>Inserisci Familiare</a></li>
+            <li><a href="<?=$navigazione_http?>accettazione.php"><i class="fa fa-circle-o"></i>Inserisci Paziente/Familiare</a></li>
        <!-- esmpio di navigatore tra directory     <li><a href="<?=$navigazione_http?>accettazione.php?pos=familiare&navigatore=1" ><i class="fa fa-circle-o"></i>Inserisci Familiare</a></li>  -->
                      </ul>
         </li>
@@ -60,10 +59,10 @@
             </span>
           </a>
            <ul class="treeview-menu">
-         <li> <a  href="<?=$navigazione_http?>lavorazioni/inserisci.php?user=<?=$login?>" ><i class="fa fa-circle-o"></i>Prenota Esame</a></li>
-            <li><a href="<?=$navigazione_http?>lavorazioni/fogli_lavoro.php?pos=inserisci&user=<?=$login?>" ><i class="fa fa-circle-o"></i>Fogli di Lavoro</a></li>
-            <li><a href="<?=$navigazione_http?>lavorazioni/fogli_lavoro.php?pos=pendenti&user=<?=$login?>" ><i class="fa fa-circle-o"></i>Esami Pendenti</a></li>
-            <li><a href="<?=$navigazione_http?>lavorazioni/hla_risultati.php?user=<?=$login?>" ><i class="fa fa-circle-o"></i>Inserisci Risultati</a></li>
+         <li> <a  href="<?=$navigazione_http?>lavorazioni/inserisci.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Prenota Esame</a></li>
+            <li><a href="<?=$navigazione_http?>lavorazioni/fogli_lavoro.php?pos=inserisci&user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Fogli di Lavoro</a></li>
+            <li><a href="<?=$navigazione_http?>lavorazioni/fogli_lavoro.php?pos=pendenti&user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Esami Pendenti</a></li>
+            <li><a href="<?=$navigazione_http?>lavorazioni/hla_risultati.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Inserisci Risultati</a></li>
                </ul>
          
         </li>

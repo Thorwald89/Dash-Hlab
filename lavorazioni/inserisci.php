@@ -27,7 +27,12 @@ session_start();
 	
 $navigazione_http="../";
 
-	include($navigazione_http."head.php");
+
+
+include($navigazione_http.'head.php');
+include($navigazione_http.'sidebar.php');
+
+
 
 $login = $_SESSION['login'];
 
@@ -132,6 +137,27 @@ alert("Inserimento effettuato.");
 
 
 <body>
+	
+	<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Prenotazione Esami
+        <small>Inserisci i profili da eseguire</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"> Campioni</a></li>
+        <li class="active">Prenotazione Esami</li>
+      </ol>
+    </section>
+
+	 <div id="alert" >
+              </div>
+	
+	
+	
 		<?php
 switch($pos){
 	
@@ -139,7 +165,86 @@ switch($pos){
 	
 	
 	?>	
-	
+	<!-- Main content -->
+    <form role="form" >
+		<section class="content">
+        <!-- left column -->
+        <div>
+          <!-- general form elements -->
+          <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">Cerca Campione</h3>
+              <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          </div>
+            </div>
+		
+              <div class="box-body">
+                 <div class="form-group">
+                  <label for="barcode">ID Campione</label>
+                  <i class="fa fa-barcode"></i><input type="text" class="form-control" name="barcode" id="barcode" placeholder="ID Campione" >
+                  <p class="help-block">Cerca il campione usando il barcode.</p>
+                </div>
+               
+
+              </div>
+              <!-- /.box-body -->
+
+              
+          <!-- /.box -->
+ 
+ </div>
+ 
+ 
+ <!-- right column -->
+             <div class="row">
+ <div class="col-md-6">
+  <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Anagrafica</h3>
+            </div>
+		
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="nome_d">Nome</label>
+					<input type="text" class="form-control" name="nome_d" id="nome_d" placeholder="Nome">
+				</div>
+                 <div class="form-group">
+					<label for="cognome_d">Cognome</label>
+					<input type="text" class="form-control" name="cognome_d" id="cognome_d" placeholder="Cognome">
+				</div>
+                <div class="form-group">
+					<label for="nascita_d">Nascita</label>
+					<input type="date" class="form-control" name="nascita_d" id="nascita_d">
+				</div>
+                 <div class="form-group">
+					<label for="prelievo">Sede Prelievo</label>
+					<input id="prelievo" class="form-control" type="text" name="prelievo" placeholder="DH, Sala donatori, etc">
+				</div>
+				<div class="form-group">
+					<label for="patologia">Patologia</label>
+					<input id="patologia" class="form-control" type="text" name="patologia" placeholder="TINU, Celiachia, etc">
+				</div>
+				<div class="form-group">
+					<label for="arrivo">Data di Arrivo</label>
+					<input id="arrivo" class="form-control" type="date" name="arrivo">
+				</div>
+              </div>
+
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+				  <input type="hidden" name="send" value="Inserisci">
+<input type="submit" value="Inserisci">              
+          </div>
+          <!-- /.box -->
+
+</div></div></div>
+
+
+
+	</form>
 <div class="container">
   <div class="row"> 
     <div class="col-lg">
@@ -372,5 +477,5 @@ switch($pos){
 
 	</form>
 <?php
-	include($navigazione_http."foot.php");
+	include($navigazione_http."footer.php");
 ?>

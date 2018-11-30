@@ -28,6 +28,7 @@ session_start();
 $navigazione_http="../";
 
 	include($navigazione_http."head.php");
+	include($navigazione_http."sidebar.php");
 
 $login = $_SESSION['login'];
 

@@ -24,10 +24,8 @@ $naviga = $_GET['navigatore'];
 
 if($naviga ==''){
 $navigazione_http="";
-echo 'vacante';
 }else{
 	$navigazione_http= '../';
-	echo 'chin';
 
 }
 
@@ -68,6 +66,8 @@ include('setup/setup.php');
   <!-- fullCalendar -->
   <link rel="stylesheet" href=".<?=$navigazione_http?>bower_components/fullcalendar/dist/fullcalendar.min.css">
   <link rel="stylesheet" href="<?=$navigazione_http?>bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+   <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="<?=$navigazione_http?>plugins/iCheck/all.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
