@@ -174,19 +174,17 @@ switch($pos){
           <div class="box box-default">
             <div class="box-header with-border">
               <h3 class="box-title">Cerca Campione</h3>
-              <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-          </div>
+				<div class="box-tools pull-right">
+					<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+				</div>
             </div>
 		
               <div class="box-body">
-                 <div class="form-group">
-                  <label for="barcode">ID Campione</label>
-                  <i class="fa fa-barcode"></i><input type="text" class="form-control" name="barcode" id="barcode" placeholder="ID Campione" >
-                  <p class="help-block">Cerca il campione usando il barcode.</p>
-                </div>
-               
-
+					<div class="form-group">
+						<label for="barcode">ID Campione</label>
+						<i class="fa fa-barcode"></i><input type="text" class="form-control" name="barcode" id="barcode" placeholder="ID Campione" >
+						<p class="help-block">Cerca il campione usando il barcode.</p>
+					</div>
               </div>
               <!-- /.box-body -->
 
@@ -195,47 +193,42 @@ switch($pos){
  
  </div>
  
- 
  <!-- right column -->
              <div class="row">
  <div class="col-md-6">
   <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Anagrafica</h3>
+              <h3 class="box-title">Profili</h3>
             </div>
 		
               <div class="box-body">
                 <div class="form-group">
-                  <label for="nome_d">Nome</label>
-					<input type="text" class="form-control" name="nome_d" id="nome_d" placeholder="Nome">
+                   <label>Metodica</label>
+                <select id="metodica" name="metodica"  class="form-control select2" style="width: 100%;">
+                  <option disabled selected>Seleziona la metodica da utilizzare</option>
+                  <option value="ssp_lr">SSP Low Resolution</option>
+                  <option value="ssp_hr">SSP High Resolution</option>
+                  <option value="sso">SSO</option>
+                  <option value="sbt">SBT</option>
+                  <option value="chimer">Chimerism</option>
+
+                </select>
 				</div>
                  <div class="form-group">
-					<label for="cognome_d">Cognome</label>
-					<input type="text" class="form-control" name="cognome_d" id="cognome_d" placeholder="Cognome">
+				<label>Loci</label>
+                <select id="loci" name="loci[]" class="form-control select2" multiple="multiple" data-placeholder="Loci da Analizzare" style="width: 100%;">
+                  <option> -- </option>
+                 
+                </select>
 				</div>
-                <div class="form-group">
-					<label for="nascita_d">Nascita</label>
-					<input type="date" class="form-control" name="nascita_d" id="nascita_d">
-				</div>
-                 <div class="form-group">
-					<label for="prelievo">Sede Prelievo</label>
-					<input id="prelievo" class="form-control" type="text" name="prelievo" placeholder="DH, Sala donatori, etc">
-				</div>
-				<div class="form-group">
-					<label for="patologia">Patologia</label>
-					<input id="patologia" class="form-control" type="text" name="patologia" placeholder="TINU, Celiachia, etc">
-				</div>
-				<div class="form-group">
-					<label for="arrivo">Data di Arrivo</label>
-					<input id="arrivo" class="form-control" type="date" name="arrivo">
-				</div>
+                
               </div>
 
               <!-- /.box-body -->
 
               <div class="box-footer">
-				  <input type="hidden" name="send" value="Inserisci">
+				  <input type="hidden" name="send" value="aggiungi_esame">
 <input type="submit" value="Inserisci">              
           </div>
           <!-- /.box -->
@@ -245,52 +238,10 @@ switch($pos){
 
 
 	</form>
-<div class="container">
-  <div class="row"> 
-    <div class="col-lg">
-	<table id="tabella" class="table table-sm table-hover">
-		
-		<thead>
-		<tr><td colspan="15" align="center"><h2><center>Campioni NON Lavorati</h2></td></tr>
-		
-	<tr>	
-	<th scope="col"><strong>ID Campione</strong></th>
-	<th scope="col"><strong>Cognome</strong></th>
-	<th scope="col"><strong>Nome</strong></th>
-
-	<th scope="col"><strong>Operatore</strong></th>
-	</tr>
-	</thead>
-	<tbody>
-	<?php
-	$s= $link->query("select esami.*, schede.nome_d as nome, schede.cognome_d as cognome, schede.barcode from esami right join schede on esami.id_campione=schede.barcode order by id") or die('1');
-	while($r =mysqli_fetch_array($s)){
-		
-		$data = date_create($r['data_test']);
-
-
-		?>
-		<tr>	
-	<td><a href="inserisci.php?pos=esame&id=<?=$r['barcode'];?>"><?=ucfirst($r['barcode'])?></a></td>
-	<td><?=ucfirst($r['cognome'])?></td>
-	<td><?=ucfirst($r['nome'])?></td>
-
-	<td><?=ucfirst($r['operatore'])?></td>
-	</tr>
-		<?php
-	}
-	?>
-	</tbody>
-	
-	</table>
-	
-		</div>
-	</div>
-</div>
 
 
 
-	</div>
+
 	<?php
 	break;
 	
@@ -473,9 +424,5 @@ switch($pos){
 	break;
 	
 }
-	?>
-
-	</form>
-<?php
 	include($navigazione_http."footer.php");
 ?>

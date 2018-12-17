@@ -26,22 +26,19 @@ include('../setup/setup.php');
 $send = urldecode($_POST['send']); 
 
 
-if($send == 'Inserisci'){
+if($send == 'aggiungi_esame'){
 
 echo ' <div id="alert-ok" class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> Inserimento di '.urldecode($_POST['barcode']).'effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>';
+                <h4><i class="icon fa fa-check"></i> Registrazione esami effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>';
 
 // inserisco i dati nel db schede per il probando
+$locus = urldecode($_POST['loci']);
+$loci = implode(",", $locus);
 
-
-		if(urldecode($_POST['grado']) == 'probando'){
-		$s= $link->query("INSERT INTO schede (`nome_d`, `cognome_d`, `nascita_d`, `telefono`, `id_famiglia`, `patologia`, `barcode`, `arrivo`) values ('".urldecode($_POST['nome_d'])."', '".urldecode($_POST['cognome_d'])."','".urldecode($_POST['nascita_d'])."','".urldecode($_POST['telefono'])."','".urldecode($_POST['id_famiglia'])."','".urldecode($_POST['patologia'])."','".urldecode($_POST['barcode'])."','".urldecode($_POST['arrivo'])."') ") or die('1');		
+		$s= $link->query("INSERT INTO fogli_lavoro (`id_campione`, `locus`, `metodica`) values ('".urldecode($_POST['barcode'])."', '$loci','".urldecode($_POST['metodica'])."') ") or die('1');		
 		
-			}else{
-		$s= $link->query("INSERT INTO famiglie (`nome`, `cognome`, `nascita`, `id_famiglia`, `grado`, `prelievo`, `arrivo`, `barcode`) values ('".$_POST['nome_d']."', '".$_POST['cognome_d']."','".$_POST['nascita_d']."','".$_POST['id_famiglia']."','".$_POST['grado']."','".$_POST['arrivo']."',NOW(), '".$_POST['barcode']."') ") or die(mysqli_error($link));
-		
-			}
+			
 }else{
 echo ' <div id="alert-danger" class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

@@ -1,5 +1,6 @@
 <?php
 
+include($navigazione_http.'setup/setup.php');
 
 $naviga = $_GET['navigatore'];
 
@@ -9,7 +10,20 @@ $navigazione_http="";
 	$navigazione_http= '../';
 
 }
+global $lotto;
+function prodotti($lotto, $link){
+$har = $link->query("select * from prodotti where tipologia = '$lotto'") or die(mysqli_error($link));
+while($lotti_hr = $har->fetch_array())
 
+{
+?>
+"<option><?= $lotti_hr['prodotto'] ?> - <?= $lotti_hr['lotto'] ?></option>"
+
+<?php
+}
+
+
+}
 ?>
 
 
@@ -38,10 +52,24 @@ $navigazione_http="";
 <script src="<?=$navigazione_http?>bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <!-- iCheck 1.0.1 -->
 <script src="<?=$navigazione_http?>plugins/iCheck/icheck.min.js"></script>
+<!-- Select2 -->
+<script src="<?=$navigazione_http?>bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
-
+	  
+	$('#metodica').on('change', function(){       
+    if ($(this).val() == 'ssp_lr' ) {
+        $('#loci').html("<option>A*LR</option><option>B*LR</option><option>C*LR</option><option>DRB*LR</option><option>DQB*LR</option>");     
+    }else if ($(this).val() == 'ssp_hr' ) {
+        $('#loci').html(<?= prodotti("ssp_hr", $link) ?>);     
+    }
+})  
+	  
+	  
+    //Initialize Select2 Elements
+    $('.select2').select2()
+    
     /* initialize the external events
      -----------------------------------------------------------------*/
     function init_events(ele) {
