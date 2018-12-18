@@ -27,14 +27,14 @@ $send = urldecode($_POST['send']);
 
 
 if($send == 'aggiungi_esame'){
-
+// inserisco i dati nel db schede per il probando
+$locus = $_POST['loci'];
+$loci = implode(",", $locus);
 echo ' <div id="alert-ok" class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> Registrazione esami effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>';
+                <h4><i class="icon fa fa-check"></i>Registrazione esami  '.$loci.' effettuato correttamente!"</h4>              </div>';
 
-// inserisco i dati nel db schede per il probando
-$locus = urldecode($_POST['loci']);
-$loci = implode(",", $locus);
+
 
 		$s= $link->query("INSERT INTO fogli_lavoro (`id_campione`, `locus`, `metodica`) values ('".urldecode($_POST['barcode'])."', '$loci','".urldecode($_POST['metodica'])."') ") or die('1');		
 		
