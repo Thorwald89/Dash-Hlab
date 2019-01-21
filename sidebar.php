@@ -61,7 +61,7 @@
           </a>
            <ul class="treeview-menu">
          <li> <a  href="<?=$navigazione_http?>lavorazioni/inserisci.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Prenota Esame</a></li>
-            <li><a href="<?=$navigazione_http?>lavorazioni/fogli_lavoro.php?pos=inserisci&user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Fogli di Lavoro</a></li>
+            <li><a href="<?=$navigazione_http?>lavorazioni/fogli_lavoro.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Fogli di Lavoro</a></li>
             <li><a href="<?=$navigazione_http?>lavorazioni/fogli_lavoro.php?pos=pendenti&user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Esami Pendenti</a></li>
             <li><a href="<?=$navigazione_http?>lavorazioni/hla_risultati.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Inserisci Risultati</a></li>
                </ul>
@@ -90,7 +90,7 @@
         
         
         <li>
-          <a href="calendar.php">
+          <a href="<?=$navigazione_http?>calendar.php">
             <i class="fa fa-calendar"></i> <span>Calendario & Appuntamenti</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-red">3</small>

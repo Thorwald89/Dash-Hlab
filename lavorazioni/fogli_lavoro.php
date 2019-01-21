@@ -100,6 +100,7 @@ alert("Inserimento effettuato.");
 
 
 }
+						$q = $link ->query("select fogli_lavoro.* from fogli_lavoro ") or die(mysqli_error($link));
 
 
 ?>
@@ -144,95 +145,69 @@ switch($pos){
 	
 	
 	?>	
-	
-<div class="container">
-  <div class="row"> 
-    <div class="col-lg">
-	<table id="tabella" class="table table-sm table-hover">
-		
-		<thead>
-		<tr><td colspan="15" align="center"><h2><center>Fogli di Lavoro</h2></td></tr>
-		
-	<tr>	
-	<th scope="col"><strong>ID Campione</strong></th>
-	<th scope="col"><strong>Locus</strong></th>
-	<th scope="col"><strong>Lotto</strong></th>
-	<th scope="col"><strong>Amplificatore</strong></th>
+	 <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Fogli di Lavoro
+        <small>Seleziona i campioni da lavorare</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Campioni</a></li>
+        <li class="active">Fogli di Lavoro</li>
+      </ol>
+    </section>
 
+<div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Esami Pendenti</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Campione</th>
+                  <th>Tipologia</th>
+                  <th>DNA Estratto</th>
+                  <th>Loci</th>
+                  <th>Metodiche</th>
+                </tr>
+                </thead>
+                <tbody>
+					
+              
+                <?php
 
-	</tr>
-	</thead>
-	<tbody>
-		
-	<tr>	
-		<td>
-
-			<select  id="sample" name="sample" >
-									<option disabled selected><i>ID Campione</i></option>
-
-				<?php
-	$s= $link->query("select fogli_lavoro.* from fogli_lavoro order by id") or die('1');
-	while($r =mysqli_fetch_array($s)){
-		
-
-
-		?>
-			
-					<option value="<?=ucfirst($r['id_campione'])?>"><?=ucfirst($r['id_campione'])?></option>
-
-		<?php
-	}
-	?>
+				while($r = mysqli_fetch_array($q))
+				{
+					$locus = $r['locus'];
+					$metodica = $r['metodica'];
+					$tipologia = $r['tipologia'];
+					$id= $r['id_campione'];
+					$estrazione= $r['estrazione'];
 				
-			</select>
-		</td>
-
-		<td>
-
-			<select  id="locus" name="locus" >
-									<option disabled selected><i>Locus</i></option>
-	
-			</select>
-		</td>
-		<td>
-
-			<select  id="lotto" name="lotto" >
-									<option disabled selected><i>Lotto</i></option>
-
+				?>
+				<tr>	
+					<td ><a href="<?=$navigazione_http?>lavorazioni/hla_risultati.php?user=<?=$login?>&navigatore=1&sample=<?=$id?>"><?= $id ?></a></td>
+					<td><?= $tipologia ?></td>	
+					<td><?= $estrazione ?></td>	
+					<td ><?= $locus ?></td>
+					<td ><?= $metodica ?></td>
+				</tr>			
 				<?php
-	$s= $link->query("select fogli_lavoro.* from fogli_lavoro order by id") or die('1');
-	while($r =mysqli_fetch_array($s)){
-		
-
-
-		?>
-			
-					<option value="<?=ucfirst($r['locus'])?>">Lotto</option>
-
-		<?php
-	}
-	?>
+					}
 				
-			</select>
-		</td>
-		<td>
-
-			<select  id="amp" name="amp" >
-									<option disabled selected><i>Amplificatore</i></option>
-
-		
-			
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-	
-			</select>
-		</td>
-	</tr>
-	
-	</tbody>
-	
-	</table>
+				?>
+               
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+				
 	
 		</div>
 	</div>
@@ -244,56 +219,7 @@ switch($pos){
 	<?php
 	break;
 	
-	case 'pendenti':
 	
-	
-	?>	
-	
-<div class="container">
-  <div class="row"> 
-    <div class="col-lg">
-	<table id="tabella" class="table table-sm table-hover">
-
-	<table id="tabella" data-toggle="table">
-		
-		<thead>
-		<tr><td colspan="15" align="center"><h2><center>Flussi di Lavoro</h2></td></tr>
-		
-	<tr>	
-	<th scope="col"><strong>ID Campione</strong></th>
-
-
-	</tr>
-	</thead>
-	<tbody>
-	<?php
-	$s= $link->query("select fogli_lavoro.* from fogli_lavoro order by id") or die('1');
-	while($r =mysqli_fetch_array($s)){
-		
-
-
-		?>
-		<tr>	
-	<td><a href="fogli_lavoro.php?pos=lavorazione&id=<?=$r['id_campione'];?>"><?=ucfirst($r['id_campione'])?></a></td>
-
-
-	</tr>
-		<?php
-	}
-	?>
-	</tbody>
-	
-	</table>
-	
-		</div>
-	</div>
-</div>
-
-
-
-	</div>
-	<?php
-	break;
 	
 	case 'lavorazione':
 	
@@ -368,5 +294,5 @@ switch($pos){
 
 	</form>
 <?php
-	include($navigazione_http."foot.php");
+	include($navigazione_http."footer.php");
 ?>

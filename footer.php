@@ -42,6 +42,9 @@ while($lotti_hr = $har->fetch_array())
 <script src="<?=$navigazione_http?>plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- SlimScroll -->
 <script src="<?=$navigazione_http?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- DataTables -->
+<script src="<?=$navigazione_http?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?=$navigazione_http?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- ChartJS -->
 <script src="<?=$navigazione_http?>bower_components/chart.js/Chart.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -319,5 +322,20 @@ while($lotti_hr = $har->fetch_array())
       });
     });
     </script> 
+    
+    <script>
+		//tabelle
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 </body>
 </html>

@@ -63,8 +63,10 @@ include('setup/setup.php');
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?=$navigazione_http?>dist/css/skins/_all-skins.min.css">
-  <!-- fullCalendar -->
-  <link rel="stylesheet" href=".<?=$navigazione_http?>bower_components/fullcalendar/dist/fullcalendar.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?=$navigazione_http?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+ <!-- fullCalendar -->
+  <link rel="stylesheet" href="<?=$navigazione_http?>bower_components/fullcalendar/dist/fullcalendar.min.css">
   <link rel="stylesheet" href="<?=$navigazione_http?>bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
    <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="<?=$navigazione_http?>plugins/iCheck/all.css">
