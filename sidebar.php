@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="dist/img/avatar.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p><?= $login?></p>
@@ -47,7 +47,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?=$navigazione_http?>accettazione.php"><i class="fa fa-circle-o"></i>Inserisci Paziente/Familiare</a></li>
+            <li><a href="<?=$navigazione_http?>accettazione.php?pos=paziente"><i class="fa fa-circle-o"></i>Inserisci Paziente/Familiare</a></li>
+            <li><a href="<?=$navigazione_http?>accettazione.php?pos=cordone"><i class="fa fa-circle-o"></i>Inserisci Cordone</a></li>
        <!-- esmpio di navigatore tra directory     <li><a href="<?=$navigazione_http?>accettazione.php?pos=familiare&navigatore=1" ><i class="fa fa-circle-o"></i>Inserisci Familiare</a></li>  -->
                      </ul>
         </li>

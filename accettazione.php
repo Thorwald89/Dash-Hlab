@@ -42,7 +42,10 @@ include($navigazione_http.'head.php');
 include($navigazione_http.'sidebar.php');
 
 
+switch($pos)
+{
 
+case 'paziente':
 ?>
 
  <!-- Content Wrapper. Contains page content -->
@@ -164,8 +167,122 @@ include($navigazione_http.'sidebar.php');
 
 	</form>
 	<?php
+	break;
 	
-	
+case 'cordone':
+?>
+
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Accettazione
+        <small>Inserisci i dati del cordone</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"> Accettazione</a></li>
+        <li class="active">Inserimento Campioni</li>
+      </ol>
+    </section>
+
+	 <div id="alert" >
+              </div>
+	<!-- Main content -->
+    <form role="form" >
+		<section class="content">
+      <div class="row">
+        <!-- left column -->
+      <div class="col-md-6">
+  <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Anagrafica Cordone</h3>
+            </div>
+		
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="nome_d">Nome</label>
+					<input type="text" class="form-control" name="nome_d" id="nome_d" placeholder="Nome">
+				</div>
+                 <div class="form-group">
+					<label for="cognome_d">Cognome</label>
+					<input type="text" class="form-control" name="cognome_d" id="cognome_d" placeholder="Cognome">
+				</div>
+                <div class="form-group">
+					<label for="nascita_d">Nascita</label>
+					<input type="date" class="form-control" name="nascita_d" id="nascita_d">
+				</div>
+				<div class="form-group">
+					<label for="barcode">barcode</label>
+					<input id="barcode" class="form-control" type="text" name="barcode" placeholder="Barcode">
+				</div>				
+				<div class="form-group">
+					<label for="arrivo">Data arrivo</label>
+					<input id="arrivo" class="form-control" type="date" name="arrivo" >
+				</div>
+
+              </div>
+
+              <!-- /.box-body -->
+
+			
+			
+			
+          <!-- /.box -->
+
+</div>
+</div>
+
+ 
+ <!-- right column -->
+        <div class="col-md-6">
+  <!-- general form elements -->
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Anagrafica Madre</h3>
+            </div>
+		
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="nome_mom">Nome Madre</label>
+					<input type="text" class="form-control" name="nome_mom" id="nome_mom" placeholder="Nome">
+				</div>
+                 <div class="form-group">
+					<label for="cognome_mom">Cognome Madre</label>
+					<input type="text" class="form-control" name="cognome_mom" id="cognome_mom" placeholder="Cognome">
+				</div>
+                <div class="form-group">
+					<label for="nascita_mom">Nascita Madre</label>
+					<input type="date" class="form-control" name="nascita_mom" id="nascita_mom">
+				</div>
+                 <div class="form-group">
+					<label for="ospedale">Ospedale</label>
+					<input id="ospedale" class="form-control" type="text" name="ospedale" placeholder="DH, Sala donatori, etc">
+				</div>
+
+
+              </div>
+
+              <!-- /.box-body -->
+
+             
+          <!-- /.box -->
+
+</div></div></div>
+
+				<div class="box-body">
+					<div class="form-group">
+						<input type="hidden" name="send" value="Inserisci_cordone">
+						<input type="submit" value="Inserisci"> 
+					</div>
+				</div>
+
+	</form>
+	<?php
+	break;
+	}
 
 
 include('footer.php');

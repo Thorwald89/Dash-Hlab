@@ -49,6 +49,28 @@ echo ' <div id="alert-danger" class="alert alert-danger alert-dismissible">
 Errore, Contatta il gestore del sistema.              </div>';
 
 }
+
+
+
+if($send == 'Inserisci_cordone'){
+
+echo ' <div id="alert-ok" class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Inserimento del cordone '.urldecode($_POST['barcode']).'effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>';
+
+// inserisco i dati nel db schede per il probando
+
+
+		$s= $link->query("INSERT INTO cordoni (`nome_cord`, `cognome_cord`, `nascita_cord`, `barcode`, `arrivo`, `nome_madre`, `cognome_madre`, `nascita_madre`, `ospedale`) values ('".urldecode($_POST['nome_d'])."', '".urldecode($_POST['cognome_d'])."','".urldecode($_POST['nascita_d'])."','".urldecode($_POST['barcode'])."','".urldecode($_POST['arrivo'])."','".urldecode($_POST['nome_mom'])."','".urldecode($_POST['cognome_mom'])."','".urldecode($_POST['nascita_mom'])."','".urldecode($_POST['ospedale'])."') ") or die(mysqli_error($link));		
+		
+		
+}else{
+echo ' <div id="alert-danger" class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="icon fa fa-check"></i> Alert!</h4>
+Errore, Contatta il gestore del sistema.              </div>';
+
+}
 /*
 		// decurto i lotti dal db prodotti
 
