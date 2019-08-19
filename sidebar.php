@@ -60,10 +60,10 @@
             </span>
           </a>
            <ul class="treeview-menu">
+         <li> <a  href="<?=$navigazione_http?>lavorazioni/find.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Cerca Campione</a></li>
          <li> <a  href="<?=$navigazione_http?>lavorazioni/inserisci.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Prenota Esame</a></li>
             <li><a href="<?=$navigazione_http?>lavorazioni/fogli_lavoro.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Fogli di Lavoro</a></li>
-            <li><a href="<?=$navigazione_http?>lavorazioni/fogli_lavoro.php?pos=pendenti&user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Esami Pendenti</a></li>
-            <li><a href="<?=$navigazione_http?>lavorazioni/hla_risultati.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Inserisci Risultati</a></li>
+            <li><a href="<?=$navigazione_http?>lavorazioni/hla_risultati.php?user=<?=$login?>&navigatore=1" ><i class="fa fa-circle-o"></i>Refertazione</a></li>
                </ul>
          
         </li>
@@ -77,9 +77,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?=$navigazione_http?>magazzino/magazzino.php?user=<?=$login?>&navigatore=1"><i class="fa fa-circle-o"></i> Magazzino</a></li>
-            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+
           </ul>
         </li>
         

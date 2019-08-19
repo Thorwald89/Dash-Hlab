@@ -1,0 +1,6 @@
+	
+	
+	
+accettazione -> inserimento in cordoni/schede e fogli_lavoro
+prenotazione esami ->
+fogli_lavoro -> registrazione esami in esami

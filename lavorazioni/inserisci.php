@@ -79,7 +79,7 @@ if($send =="Inserisci"){
 		$f_cd34= mysqli_query("insert INTO log_prodotti (lotto, quota, data, valore) VALUES ('".$_POST['lotto_cd34']."','$var_cd34','".$_POST['data_congelamento']."','Scarico Congelamento Sacca')") or die(mysqli_error());
 */
 		
-		// inserisco i dati nel db fogli_lavoro per il probando
+		// inserisco i dati nel db fogli_lavoro per il campione
 
 			if($_POST['a_lr'] != '')$a_lr = $_POST['a_lr'].",";
 			if($_POST['b_lr'] != '')$b_lr = $_POST['b_lr'].",";
@@ -101,7 +101,7 @@ if($send =="Inserisci"){
 			if($_POST['dp1_hr'] != '0')$dp1_hr = "DP".$_POST['dp1_hr'].",";
 			if($_POST['dp2_hr'] != '0')$dp2_hr = "DP".$_POST['dp2_hr'];
 
-				$array_locus = $a_lr."".$b_lr."".$c_lr."".$dr_lr."".$dq_lr."".$a1_hr."".$a2_hr."".$b1_hr."".$b2_hr."".$c1_hr."".$c2_hr."".$dr1_hr."".$dr2_hr."".$dqa1_hr."".$dqa2_hr."".$dqb1_hr."".$dqb2_hr."".$dp1_hr."".$dp2_hr;
+			$array_locus = $a_lr."".$b_lr."".$c_lr."".$dr_lr."".$dq_lr."".$a1_hr."".$a2_hr."".$b1_hr."".$b2_hr."".$c1_hr."".$c2_hr."".$dr1_hr."".$dr2_hr."".$dqa1_hr."".$dqa2_hr."".$dqb1_hr."".$dqb2_hr."".$dp1_hr."".$dp2_hr;
 			
 			$locus = array($array_locus);
 			$locus = implode(',', $locus);
@@ -112,22 +112,14 @@ if($send =="Inserisci"){
 			if($_POST['sso'] != '')$sso = $_POST['sso'].",";
 			if($_POST['sbt'] != '')$sbt = $_POST['sbt'];
 
-				$array_metodica= $ssp_lr."".$ssp_hr."".$sso."".$sbt;
+			$array_metodica= $ssp_lr."".$ssp_hr."".$sso."".$sbt;
 
 			$metodica = array($array_metodica);
 			$metodica = implode(',', $metodica);
 			
 			
-		$s= $link->query("INSERT INTO fogli_lavoro (`id_campione`, `locus`, `metodica`) values ('".$_POST['id_campione']."', '$locus','$metodica') ") or die(mysqli_error($link));		
-		?>
-<script language="javascript">
-alert("Inserimento effettuato.");
-</script>
-<?php
-	
-	
+			
 
-		
 
 
 }
@@ -203,7 +195,9 @@ switch($pos){
             </div>
 		
               <div class="box-body">
-                <div class="form-group">
+                  
+				
+				<div class="form-group">
                    <label>Metodica</label>
                 <select id="metodica" name="metodica"  class="form-control select2" style="width: 100%;">
                   <option disabled selected>Seleziona la metodica da utilizzare</option>
@@ -212,17 +206,26 @@ switch($pos){
                   <option value="sso">SSO</option>
                   <option value="sbt">SBT</option>
                   <option value="chimer">Chimerism</option>
-
                 </select>
 				</div>
+				
                  <div class="form-group">
 				<label>Loci</label>
                 <select id="loci" name="loci[]" class="form-control select2" multiple="multiple" data-placeholder="Loci da Analizzare" style="width: 100%;">
-                  <option> -- </option>
-                 
+                  <option> -- </option>                
                 </select>
 				</div>
                 
+                <div class="form-group">
+                   <label>Estrazione DNA</label>
+                <select id="estrazione" name="estrazione" class="form-control select2" style="width: 100%;">
+                  <option disabled selected>Seleziona la metodica da utilizzare</option>
+                  <option value="dna_manuale">Estrattore Automatico</option>
+                  <option value="dna_auto">Estrazione Manuale</option>
+                </select>
+				</div>
+				
+				
               </div>
 
               <!-- /.box-body -->

@@ -187,10 +187,20 @@ switch($pos){
 					$tipologia = $r['tipologia'];
 					$id= $r['id_campione'];
 					$estrazione= $r['estrazione'];
+					
+					
+					//controllo che sia un cordone per reindirizzarlo ad hla_risultati case:inserisci-cordone 
+					if($tipologia == 'cordone'){
+						
+						$pos= 'pos=inserisci-cordone&';
+
+						}else{
+						$pos= 'pos=inserisci&';
+						}
 				
 				?>
 				<tr>	
-					<td ><a href="<?=$navigazione_http?>lavorazioni/hla_risultati.php?user=<?=$login?>&navigatore=1&sample=<?=$id?>"><?= $id ?></a></td>
+					<td ><a href="<?=$navigazione_http?>lavorazioni/hla_risultati.php?<?=$pos?>user=<?=$login?>&navigatore=1&sample=<?=$id?>"><?= $id ?></a></td>
 					<td><?= $tipologia ?></td>	
 					<td><?= $estrazione ?></td>	
 					<td ><?= $locus ?></td>

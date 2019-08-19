@@ -19,7 +19,6 @@
  * 
  * 
  */
-
 $naviga = $_GET['navigatore'];
 
 if($naviga ==''){
@@ -41,6 +40,8 @@ include('setup/setup.php');
 
 	$admin=$_SESSION['admin'];
 	$login=$_SESSION['login'];
+
+
 ?>
 <!DOCTYPE html>
 <html>

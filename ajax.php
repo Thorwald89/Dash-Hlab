@@ -30,28 +30,26 @@ if($send == 'Inserisci'){
 
 echo ' <div id="alert-ok" class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> Inserimento di '.urldecode($_POST['barcode']).'effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>';
+                <h4><i class="icon fa fa-check"></i> Inserimento di '.urldecode($_POST['barcode']).' effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>';
 
-// inserisco i dati nel db schede per il probando
+// inserisco i dati nel db schede e fogli_lavoro
 
 
-		if(urldecode($_POST['grado']) == 'probando'){
-		$s= $link->query("INSERT INTO schede (`nome_d`, `cognome_d`, `nascita_d`, `telefono`, `id_famiglia`, `patologia`, `barcode`, `arrivo`) values ('".urldecode($_POST['nome_d'])."', '".urldecode($_POST['cognome_d'])."','".urldecode($_POST['nascita_d'])."','".urldecode($_POST['telefono'])."','".urldecode($_POST['id_famiglia'])."','".urldecode($_POST['patologia'])."','".urldecode($_POST['barcode'])."','".urldecode($_POST['arrivo'])."') ") or die('1');		
+		$s= $link->query("INSERT INTO schede (`nome_d`, `cognome_d`, `nascita_d`, `telefono`, `id_famiglia`, `patologia`, `barcode`, `arrivo`, `grado`, `prelievo`) values ('".urldecode($_POST['nome_d'])."', '".urldecode($_POST['cognome_d'])."','".urldecode($_POST['nascita_d'])."','".urldecode($_POST['telefono'])."','".urldecode($_POST['id_famiglia'])."','".urldecode($_POST['patologia'])."','".urldecode($_POST['barcode'])."','".urldecode($_POST['arrivo'])."','".$_POST['grado']."','".$_POST['prelievo']."') ") or die('1');		
+					
+		$s= $link->query("INSERT INTO fogli_lavoro (`id_campione`, `estrazione`,`tipologia`) values ('".$_POST['barcode']."', 'no','".$_POST['grado']."') ") or die(mysqli_error($link));
 		
-			}else{
-		$s= $link->query("INSERT INTO famiglie (`nome`, `cognome`, `nascita`, `id_famiglia`, `grado`, `prelievo`, `arrivo`, `barcode`) values ('".$_POST['nome_d']."', '".$_POST['cognome_d']."','".$_POST['nascita_d']."','".$_POST['id_famiglia']."','".$_POST['grado']."','".$_POST['arrivo']."',NOW(), '".$_POST['barcode']."') ") or die(mysqli_error($link));
-		
-			}
+			
 }elseif($send == 'Inserisci_cordone'){
 
 echo ' <div id="alert-ok" class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> Inserimento del cordone '.urldecode($_POST['barcode']).'effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>';
+                <h4><i class="icon fa fa-check"></i> Inserimento del cordone '.urldecode($_POST['barcode']).' effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>';
 
 // inserisco i dati nel db cordoni
 
 
-		$s= $link->query("INSERT INTO cordoni (`nome_cord`, `cognome_cord`, `nascita_cord`, `barcode`, `arrivo`, `nome_madre`, `cognome_madre`, `nascita_madre`, `ospedale`) values ('".urldecode($_POST['nome_d'])."', '".urldecode($_POST['cognome_d'])."','".urldecode($_POST['nascita_d'])."','".urldecode($_POST['barcode'])."','".urldecode($_POST['arrivo'])."','".urldecode($_POST['nome_mom'])."','".urldecode($_POST['cognome_mom'])."','".urldecode($_POST['nascita_mom'])."','".urldecode($_POST['ospedale'])."') ") or die(mysqli_error($link));		
+		$s= $link->query("INSERT INTO cordoni (`nome_cord`, `cognome_cord`, `nascita_cord`, `barcode`, `arrivo`, `nome_madre`, `cognome_madre`, `nascita_madre`, `ospedale`) values ('".urldecode($_POST['nome_d'])."', '".urldecode($_POST['cognome_d'])."','".urldecode($_POST['nascita_d'])."','".$_POST['barcode']."','".urldecode($_POST['arrivo'])."','".urldecode($_POST['nome_mom'])."','".urldecode($_POST['cognome_mom'])."','".urldecode($_POST['nascita_mom'])."','".urldecode($_POST['ospedale'])."') ") or die(mysqli_error($link));		
 // inserisco i dati nel db fogli_lavoro/estrazione
 
 		$s2= $link->query("INSERT INTO fogli_lavoro (`id_campione`, `estrazione`,`tipologia`) values ('".urldecode($_POST['barcode'])."', 'no', 'cordone') ") or die(mysqli_error($link));		

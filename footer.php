@@ -313,7 +313,9 @@ while($lotti_hr = $har->fetch_array())
           data: bobo,
           dataType: "html",
           success: function(msg) {  
-			$("div#alert").html(msg);			},
+			$("div#alert").html(msg);
+			$("div#prova").append($("div#provola"));
+						},
           error: function(){
             alert("Chiamata fallita!!!");
           } 
@@ -322,11 +324,13 @@ while($lotti_hr = $har->fetch_array())
       });
     });
     </script> 
-    
+
+ 
     <script>
 		//tabelle
   $(function () {
     $('#example1').DataTable()
+    $('#Sample').DataTable()
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': false,
