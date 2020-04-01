@@ -44,8 +44,12 @@ echo ' <div id="alert-ok" class="alert alert-success alert-dismissible">
 
 echo ' <div id="alert-ok" class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-check"></i> Inserimento del cordone '.urldecode($_POST['barcode']).' effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>';
-
+                <h4><i class="icon fa fa-check"></i> Inserimento del cordone '.urldecode($_POST['barcode']).' effettuato correttamente! Passa adesso alla "Prenotazione Esami"</h4>              </div>
+                
+                <div id="print_barcode">
+				'.urldecode($_POST['barcode']).'
+				</div>                ';
+				print "<script>print_barcode.print()</script>";
 // inserisco i dati nel db cordoni
 
 

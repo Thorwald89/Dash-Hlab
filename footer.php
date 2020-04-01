@@ -10,20 +10,32 @@ $navigazione_http="";
 	$navigazione_http= '../';
 
 }
+
+
 global $lotto;
-function prodotti($lotto, $link){
-$har = $link->query("select * from prodotti where tipologia = '$lotto'") or die(mysqli_error($link));
-while($lotti_hr = $har->fetch_array())
+//rimosso la variabile $lotto e commentato la partenza della funzione per ora
+//function prodotti($lotto, $link){
+	
+$har = $link->query("select * from prodotti where tipologia = 'ssp_hr' order by id") or die(mysqli_error($link));
+	$array = array();
 
-{
-?>
-"<option><?= $lotti_hr['prodotto'] ?> - <?= $lotti_hr['lotto'] ?></option>"
+// while($lotti_hr = $har->fetch_array()){
+ while($lotti_hr = mysqli_fetch_assoc($har)){
 
-<?php
+//$array[] = $lotti_hr['prodotto'];
+$array[] = $lotti_hr;
+
+
+
 }
 
 
-}
+//}
+print_r($array);
+
+//$prod = prodotti("ssp_hr", $link);
+//$prova = array("a", "b", "c");
+
 ?>
 
 
@@ -61,14 +73,14 @@ while($lotti_hr = $har->fetch_array())
 <script>
   $(function () {
 	  
+	 
+
+	  
 	$('#metodica').on('change', function(){       
     if ($(this).val() == 'ssp_lr' ) {
         $('#loci').html("<option>A*LR</option><option>B*LR</option><option>C*LR</option><option>DRB*LR</option><option>DQB*LR</option>");     
-    }else if ($(this).val() == 'ssp_hr' ) {
-        $('#loci').html(<?= prodotti("ssp_hr", $link) ?>);     
     }
-})  
-	  
+});  
 	  
     //Initialize Select2 Elements
     $('.select2').select2()

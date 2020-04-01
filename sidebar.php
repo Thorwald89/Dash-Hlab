@@ -48,7 +48,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?=$navigazione_http?>accettazione.php?pos=paziente"><i class="fa fa-circle-o"></i>Inserisci Paziente/Familiare</a></li>
-            <li><a href="<?=$navigazione_http?>accettazione.php?pos=cordone"><i class="fa fa-circle-o"></i>Inserisci Cordone</a></li>
+            <li><a href="<?=$navigazione_http?>accettazione.php?pos=hlamalattie"><i class="fa fa-circle-o"></i>Inserisci HLA/Malattie</a></li>
+			<li><a href="<?=$navigazione_http?>accettazione.php?pos=cordone"><i class="fa fa-circle-o"></i>Inserisci Cordone</a></li>
        <!-- esmpio di navigatore tra directory     <li><a href="<?=$navigazione_http?>accettazione.php?pos=familiare&navigatore=1" ><i class="fa fa-circle-o"></i>Inserisci Familiare</a></li>  -->
                      </ul>
         </li>
